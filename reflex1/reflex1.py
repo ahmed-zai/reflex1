@@ -9,6 +9,18 @@ class State(rx.State):
     """The app state."""
 
     ...
+def about() -> rx.Component:
+    # about Page (Index)
+    return rx.container(
+        rx.color_mode.button(position="top-right"),
+        rx.vstack(
+            rx.heading("Welcome to about!", size="9"),
+            spacing="5",
+            justify="center",
+            min_height="85vh",
+        ),
+        rx.logo(),
+    )
 
 
 def index() -> rx.Component:
@@ -37,3 +49,4 @@ def index() -> rx.Component:
 
 app = rx.App()
 app.add_page(index)
+app.add_page(about, route='/about')
